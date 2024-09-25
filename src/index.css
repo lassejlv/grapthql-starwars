@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+:root {
+   --background: #0d181e;
+   --blue: #5f8598;
+}
+
+body {
+   background-color: var(--background);
+   font-family: 'Roboto', sans-serif;
+   color: var(--blue);
+}
+
+h1 {
+   font-family: 'Orbitron', sans-serif;
+}
+
+@layer reset, base, tokens, recipes, utilities;
