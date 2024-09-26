@@ -7,6 +7,7 @@ import { AllMoviesQuery, Film, type AllMoviesQueryResponse } from '../queries/Al
 import { css } from '../../styled-system/css';
 import Loader from '../components/Loader';
 import { motion } from 'framer-motion';
+import Header from '../components/Header';
 
 export const Route = createFileRoute('/')({
    component: HomeComponent,
@@ -26,6 +27,8 @@ function HomeComponent() {
 
    return (
       <>
+         <Header logo='/logo-white.png' />
+
          {currentMovie && (
             <motion.div
                initial={{ opacity: 0 }}
@@ -49,6 +52,11 @@ function HomeComponent() {
                >
                   <h1 className={css({ fontSize: '2xl', fontWeight: 'bold' })}>{currentMovie.title}</h1>
                   <p className={css({ fontSize: 'lg', mt: 2 })}>{currentMovie.openingCrawl}</p>
+
+                  <p className={css({ fontSize: 'md' })}>
+                     <b>Director:</b> {currentMovie.director} | <b>Producer:</b> {currentMovie.producers} | <b>Release Date:</b>{' '}
+                     {currentMovie.releaseDate}
+                  </p>
                   <button
                      onClick={() => setCurrentMovie(null)}
                      className={css({
@@ -135,6 +143,10 @@ function HomeComponent() {
                </div>
             ) : null}
          </main>
+
+         <footer className={css({ bg: 'darkerLighter', p: 4, mt: 10, textAlign: 'center' })}>
+            <p className={css({ fontSize: 'sm' })}>Made with ❤️ by lasse</p>
+         </footer>
       </>
    );
 }
